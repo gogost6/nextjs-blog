@@ -7,7 +7,13 @@ import Link from 'next/link';
 const name = 'da.sponge';
 export const siteTitle = 'Next.js Sample Website';
 
-export default function Layout({ children, home }) {
+export default function Layout({
+    children,
+    home,
+}: {
+    children: React.ReactNode;
+    home?: boolean;
+}) {
     return (
         <div className={styles.container}>
             <Head>
@@ -19,7 +25,7 @@ export default function Layout({ children, home }) {
                 <meta
                     property="og:image"
                     content={`https://og-image.vercel.app/${encodeURI(
-                        siteTitle,
+                        siteTitle
                     )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
                 />
                 <meta name="og:title" content={siteTitle} />
@@ -54,7 +60,9 @@ export default function Layout({ children, home }) {
                         </Link>
                         <h2 className={utilStyles.headingLg}>
                             <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
+                                <a className={utilStyles.colorInherit}>
+                                    {name}
+                                </a>
                             </Link>
                         </h2>
                     </>
